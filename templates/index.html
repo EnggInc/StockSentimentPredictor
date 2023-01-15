@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>Stock Analyzer</title>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<style>
+body,h1 {font-family: "Raleway", sans-serif}
+body, html {height: 100%}
+.bgimg {
+  background-image: url('main_bg.jpg');
+  min-height: 100%;
+  background-position: center;
+  background-size: cover;
+  justify-content: center;
+}
+
+div {
+  padding: 170px;
+  border: 1px solid #4CAF50;
+}
+
+</style>  
+</head>
+
+<body>
+ <div align='center' padding-top: 320px class="bgimg">
+	<h1>Stock Sentimental Analysis and Prediction</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<input type="text" name="title" placeholder="Enter feed" required="required" value=""  style="width: 450px; height: 40px;" />
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text}}
+
+ </div>
+</body>
+
+</html>
